@@ -16,12 +16,45 @@ describe('test/rsa.test.js', () => {
   after(() => app.close());
   afterEach(mock.restore);
 
-  it.skip('should GET /', () => {
+  it('should GET /', () => {
     return app.httpRequest()
       .get('/')
       .expect('hi, rsa')
       .expect(200);
   });
+
+  it('should GET /testIgnorePath', () => {
+    return app.httpRequest()
+      .get('/testIgnorePath?q=t')
+      .set('content-type', 'application/json')
+      .expect({
+        test: 'ok',
+        q: 't',
+      })
+      .expect(200);
+  });
+
+  it('should GET /testIgnoreFunc', () => {
+    return app.httpRequest()
+      .get('/testIgnoreFunc?q=t')
+      .set('content-type', 'application/json')
+      .expect({
+        test: 'ok',
+        q: 't',
+      })
+      .expect(200);
+  });
+
+  it('should GET /ignoreExportFunc', () => {
+    return app.httpRequest()
+      .get('/ignoreExportFunc')
+      .set('content-type', 'application/json')
+      .expect({
+        test: 'ok',
+      })
+      .expect(200);
+  });
+
 
   it('should GET /test with query', async () => {
     const param = { username: '12138' };

@@ -36,6 +36,26 @@ class HomeController extends Controller {
       age: query.age,
     };
   }
+
+
+  async testIgnorePath() {
+    this.ctx.body = {
+      test: 'ok',
+      q: this.ctx.query.q,
+    };
+  }
+
+  async testIgnoreFunc() {
+    this.ctx.body = {
+      test: 'ok',
+      q: this.ctx.query.q,
+    };
+  }
+  async ignoreExportFunc() {
+    this.ctx.body = {
+      test: 'ok',
+    };
+  }
 }
 
 module.exports = HomeController;

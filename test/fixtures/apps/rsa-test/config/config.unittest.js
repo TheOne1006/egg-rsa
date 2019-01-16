@@ -13,10 +13,15 @@ module.exports = app => {
 
   const config = {
     rsaWrap: {
-      ignorePath: [],
-      matchFunction: () => true,
+      ignorePaths: [ '/', /^\/testIgnore.ath$/ ],
+      ignore: ctx => {
+        return ctx.path === '/testIgnoreFunc';
+      },
       rsaPrivateKey,
       rsaPublicKey,
+      ignoreExport: ctx => {
+        return ctx.path === '/ignoreExportFunc';
+      },
     },
   };
 

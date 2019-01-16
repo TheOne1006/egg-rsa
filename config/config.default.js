@@ -6,5 +6,9 @@
  * @property {String} SOME_KEY - some description
  */
 exports.rsaWrap = {
-  ignorePath: [],
+  ignorePaths: [ '/' ],
+  ignore: () => true, // (ctx) => true
+  rsaPrivateKey: '',
+  rsaPublicKey: '',
+  ignoreExport: () => false, // (ctx) => false
 };
