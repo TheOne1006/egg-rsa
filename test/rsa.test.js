@@ -82,7 +82,7 @@ describe('test/rsa.test.js', () => {
       username: '12138',
     }];
 
-    assert.deepEqual(body, expectdBody);
+    assert.deepEqual(expectdBody, body);
   });
 
   it('should POST /testPost with query', async () => {

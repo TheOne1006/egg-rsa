@@ -10,5 +10,7 @@ exports.rsaWrap = {
   ignore: () => true, // (ctx) => true
   rsaPrivateKey: '',
   rsaPublicKey: '',
+  outEncoding: 'base64',
+  bufEncoding: 'utf8',
   ignoreExport: () => false, // (ctx) => false
 };

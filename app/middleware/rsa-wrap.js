@@ -6,6 +6,8 @@ module.exports = options => {
     const ignorePaths = options.ignorePaths;
     const ignoreFunction = options.ignore;
     const ignoreExportFunc = options.ignoreExport;
+    const outEncoding = options.outEncoding || 'base64';
+    const bufEncoding = options.bufEncoding || 'utf8';
 
     let ignoreParse = false;
     let ignoreExport = false;
@@ -48,7 +50,7 @@ module.exports = options => {
       let extendQuery = {};
       if (paramPublicRsaStr) {
         try {
-          const paramStr = rsaObj.privateKey.decrypt(paramPublicRsaStr, 'base64', 'utf8');
+          const paramStr = rsaObj.privateKey.decrypt(paramPublicRsaStr, outEncoding, bufEncoding);
           // console.log(paramStr);
           extendQuery = JSON.parse(paramStr);
         } catch (error) {
@@ -68,7 +70,7 @@ module.exports = options => {
 
       if (bodyPublicRsaStr) {
         try {
-          const bodayStr = rsaObj.privateKey.decrypt(bodyPublicRsaStr, 'base64', 'utf8');
+          const bodayStr = rsaObj.privateKey.decrypt(bodyPublicRsaStr, outEncoding, bufEncoding);
           // console.log(bodayStr);
           extendBody = JSON.parse(bodayStr);
         } catch (error) {
@@ -91,7 +93,7 @@ module.exports = options => {
 
     if (body && !ignoreExport) {
       const bodyJsonStr = JSON.stringify(body);
-      const bodayStr = rsaObj.privateKey.privateEncrypt(bodyJsonStr, 'utf8', 'base64');
+      const bodayStr = rsaObj.privateKey.privateEncrypt(bodyJsonStr, bufEncoding, outEncoding);
       ctx.body = {
         spayload: bodayStr,
       };

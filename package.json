@@ -1,7 +1,7 @@
 {
   "name": "egg-rsa",
   "version": "1.0.0",
-  "description": "rsa加密数据",
+  "description": "rsa加密请求数据",
   "eggPlugin": {
     "name": "rsa"
   },
@@ -11,7 +11,6 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "node-rsa": "^1.0.2",
     "ursa": "^0.9.4"
   },
   "devDependencies": {
@@ -50,12 +49,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-rsa.git"
+    "url": "git+https://github.com/TheOne1006/egg-rsa.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/TheOne1006/egg-rsa/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-rsa#readme",
+  "homepage": "https://github.com/TheOne1006/egg-rsa#readme",
   "author": "theone1006",
   "license": "MIT"
 }

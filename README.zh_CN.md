@@ -20,9 +20,22 @@
 [download-image]: https://img.shields.io/npm/dm/egg-rsa.svg?style=flat-square
 [download-url]: https://npmjs.org/package/egg-rsa
 
-<!--
-Description here.
--->
+
+使用 rsa 加密, 请求数据,以及加密输出数据
+
+### 配置方式
+
+```js
+{
+  ignorePaths: [ '/' ], // 忽略请求路径, 支持正则
+  ignore: () => true, // (ctx) => true 忽略请求方式
+  rsaPrivateKey: '', // 秘钥文本
+  rsaPublicKey: '', // 公钥文本
+  outEncoding: 'base64', // 输出编码
+  bufEncoding: 'utf8', // buffer 编码
+  ignoreExport: () => false, // (ctx) => false 忽略输出请求方式
+}
+```
 
 ## 依赖说明
 
@@ -69,7 +82,7 @@ exports.rsa = {
 
 ## 提问交流
 
-请到 [egg issues](https://github.com/eggjs/egg/issues) 异步交流。
+请到 [egg issues](https://github.com/TheOne1006/egg-rsa/issues) 异步交流。
 
 ## License
 
